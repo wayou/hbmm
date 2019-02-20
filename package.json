@@ -1,0 +1,27 @@
+{
+  "name": "hbmm",
+  "version": "0.1.0",
+  "description": "manage and switch homebrew mirrors",
+  "bin": "./cli.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wayou/hbmm.git"
+  },
+  "scripts": {
+    "star": "npm star nrm"
+  },
+  "keywords": [
+    "homebrew",
+    "mirror"
+  ],
+  "author": "wayou",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wayou/hbmm/issues"
+  },
+  "homepage": "https://github.com/wayou/hbmm",
+  "dependencies": {
+    "commander": "^2.19.0",
+    "node-echo": "^0.1.1"
+  }
+}

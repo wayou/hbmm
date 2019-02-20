@@ -1,0 +1,10 @@
+{
+    "default": {
+        "brew": "https://github.com/Homebrew/brew.git",
+        "core": "https://github.com/Homebrew/homebrew-core.git"
+    },
+    "tsinghua": {
+        "brew": "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git",
+        "core": "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+    }
+}
