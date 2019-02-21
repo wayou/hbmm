@@ -53,6 +53,9 @@ Following mirrors are included :
 - tsinghua
   - brew: `https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git`
   - core: `https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git`
+- ustc
+  - brew: `https://mirrors.ustc.edu.cn/brew.git`,
+  - core: `https://mirrors.ustc.edu.cn/homebrew-core.git`
 
 ### License
 
