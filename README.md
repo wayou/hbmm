@@ -24,14 +24,15 @@ $ hbmm ls
 
 ````sh
 $ hbmm use <mirror_name>
+```
 
 #### Add a mirror
 
 ```sh
-$ hbmm add <key> <brew> <core> [description]
+$ hbmm add <mirror_name> <brew> <core> [description]
 ````
 
-- `key` is the unique key to identify the mirror
+- `mirror_name` is the unique key to identify the mirror
 - `brew` is the homebrew git url
 - `core` is the homebrew-core git url
 - `description` is optional to describle the mirror
@@ -39,7 +40,7 @@ $ hbmm add <key> <brew> <core> [description]
 #### Remove to a mirror
 
 ```sh
-$ hbmm use <key>
+$ hbmm use <mirror_name>
 ```
 
 ### Predefined Mirrors

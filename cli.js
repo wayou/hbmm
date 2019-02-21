@@ -19,7 +19,7 @@ program
   .action(onUse);
 
 program
-  .command("add <key> <brew> <core> [description]")
+  .command("add <mirror_name> <brew> <core> [description]")
   .description("add a mirror")
   .action(onAdd);
 
