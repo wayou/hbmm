@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 const { exec } = require("child_process");
-var program = require("commander");
-var mirrors = require("./mirrors.json");
-var PKG = require("./package.json");
+const program = require("commander");
+const mirrors = require("./mirrors.json");
+const PKG = require("./package.json");
 const fs = require("fs");
+const path = require("path");
 
 program.version(PKG.version);
 
@@ -18,7 +19,7 @@ program
   .action(onUse);
 
 program
-  .command("add <key> <description> <brew> <core>")
+  .command("add <key> <brew> <core> [description]")
   .description("add a mirror")
   .action(onAdd);
 
@@ -81,44 +82,39 @@ function onUse(name) {
 }
 
 function onAdd(key, brew, core, desription) {
-  if (!key) {
-    console.log(`missing key`);
-    return;
-  }
-  if (!brew) {
-    console.log(`missing brew address`);
-    return;
-  }
-  if (!core) {
-    console.log(`missing core address`);
-    return;
-  }
-
   const mirror = {
     desription: desription || "",
     brew,
     core
   };
   mirrors[key] = mirror;
-  fs.writeFile("mirrors.json", JSON.stringify(mirrors), err => {
-    if (err) {
-      console.log(err);
-      return;
+  fs.writeFile(
+    path.resolve(__dirname, "./mirrors.json"),
+    JSON.stringify(mirrors),
+    err => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log(`${key} added`);
     }
-    console.log(`${key} added`);
-  });
+  );
 }
 
 function onRemove(key) {
   if (mirrors[key]) {
     delete mirrors[key];
-    fs.writeFile("mirrors.json", JSON.stringify(mirrors), err => {
-      if (err) {
-        console.log(err);
-        return;
+    fs.writeFile(
+      path.resolve(__dirname, "./mirrors.json"),
+      JSON.stringify(mirrors),
+      err => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        console.log(`${key} removed`);
       }
-      console.log(`${key} removed`);
-    });
+    );
   } else {
     console.log(`${key} not found!`);
   }
