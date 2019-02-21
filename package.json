@@ -7,9 +7,6 @@
     "type": "git",
     "url": "git://github.com/wayou/hbmm.git"
   },
-  "scripts": {
-    "star": "npm star nrm"
-  },
   "keywords": [
     "homebrew",
     "mirror"
