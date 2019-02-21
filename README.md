@@ -22,7 +22,7 @@ $ hbmm ls
 
 #### Switch to a mirror
 
-````sh
+```sh
 $ hbmm use <mirror_name>
 ```
 
@@ -30,7 +30,7 @@ $ hbmm use <mirror_name>
 
 ```sh
 $ hbmm add <mirror_name> <brew> <core> [description]
-````
+```
 
 - `mirror_name` is the unique key to identify the mirror
 - `brew` is the homebrew git url
