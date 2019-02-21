@@ -1,5 +1,5 @@
 {
-  "default": {
+  "official": {
     "name": "official",
     "homepage": "https://github.com/Homebrew/brew",
     "brew": "https://github.com/Homebrew/brew.git",
