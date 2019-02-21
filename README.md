@@ -1,4 +1,4 @@
-hbmm
+Homebrew Mirror Manager
 ===
 
 manage and switch homebrew mirrors.
