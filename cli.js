@@ -3,6 +3,7 @@ const { exec } = require("child_process");
 var program = require("commander");
 var mirrors = require("./mirrors.json");
 var PKG = require("./package.json");
+const fs = require("fs");
 
 program.version(PKG.version);
 
@@ -15,6 +16,16 @@ program
   .command("use <mirror>")
   .description("switch to <mirror>")
   .action(onUse);
+
+program
+  .command("add <key> <description> <brew> <core>")
+  .description("add a mirror")
+  .action(onAdd);
+
+program
+  .command("remove <key>")
+  .description("removef a mirror")
+  .action(onRemove);
 
 program
   .command("help", { isDefault: true })
@@ -37,7 +48,11 @@ function onList() {
     Object.keys(allMirrors).forEach(function(key) {
       var item = allMirrors[key];
       var prefix = item.brew === cur ? "* " : "  ";
-      info.push(prefix + item.name + line(key, 8) + item.brew);
+      const description = item.description || "";
+      info.push(prefix + key + ":");
+      info.push(`    description: ${description}`);
+      info.push(`    brew: ${item.brew}`);
+      info.push(`    core: ${item.core}`);
     });
 
     info.push("");
@@ -62,6 +77,50 @@ function onUse(name) {
     );
   } else {
     printMsg(["", name + " not found!", "Check the spell and try again."]);
+  }
+}
+
+function onAdd(key, brew, core, desription) {
+  if (!key) {
+    console.log(`missing key`);
+    return;
+  }
+  if (!brew) {
+    console.log(`missing brew address`);
+    return;
+  }
+  if (!core) {
+    console.log(`missing core address`);
+    return;
+  }
+
+  const mirror = {
+    desription: desription || "",
+    brew,
+    core
+  };
+  mirrors[key] = mirror;
+  fs.writeFile("mirrors.json", JSON.stringify(mirrors), err => {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    console.log(`${key} added`);
+  });
+}
+
+function onRemove(key) {
+  if (mirrors[key]) {
+    delete mirrors[key];
+    fs.writeFile("mirrors.json", JSON.stringify(mirrors), err => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log(`${key} removed`);
+    });
+  } else {
+    console.log(`${key} not found!`);
   }
 }
 
