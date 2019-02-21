@@ -38,6 +38,11 @@ Following mirrors are included :
     - brew: `https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git`
     - core: `https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git`
 
+### TODO
+
+- [] customize origins (add, remove)
+- [] speed test
+
 
 ### License
 

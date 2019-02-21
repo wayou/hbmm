@@ -1,10 +1,20 @@
 {
-    "default": {
-        "brew": "https://github.com/Homebrew/brew.git",
-        "core": "https://github.com/Homebrew/homebrew-core.git"
-    },
-    "tsinghua": {
-        "brew": "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git",
-        "core": "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
-    }
+  "default": {
+    "name": "official",
+    "homepage": "https://github.com/Homebrew/brew",
+    "brew": "https://github.com/Homebrew/brew.git",
+    "core": "https://github.com/Homebrew/homebrew-core.git"
+  },
+  "tsinghua": {
+    "name": "tsinghua/清华大学镜像",
+    "homepage": "https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/",
+    "brew": "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git",
+    "core": "https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git"
+  },
+  "ustc": {
+    "name": "ustc/中科大镜像",
+    "homepage": "https://lug.ustc.edu.cn/wiki/mirrors/help/brew.git?s[]=homebrew",
+    "brew": "https://mirrors.ustc.edu.cn/brew.git",
+    "core": "https://mirrors.ustc.edu.cn/homebrew-core.git"
+  }
 }
